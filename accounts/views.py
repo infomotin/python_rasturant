@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 from . forms import CustomUserCreationForm
 from . models import User
+# message
+from django.contrib import messages
 
 # Create your views here.
 def registerUser(request):
@@ -36,7 +38,7 @@ def registerUser(request):
             user.is_active = True
             user.phone_number = form.cleaned_data.get('phone_number')
             user.save()
-
+            messages.success(request, 'Account created successfully')
             return redirect('registerUser')
         else:
             print(form.errors)
