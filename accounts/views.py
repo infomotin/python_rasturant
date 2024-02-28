@@ -46,3 +46,8 @@ def registerUser(request):
         form = CustomUserCreationForm()
     context = {'form': form}
     return render(request, 'accounts/registerUser.html', context)
+
+
+def registerVendor(request):
+    
+    return render(request, 'accounts/registerVendor.html')
