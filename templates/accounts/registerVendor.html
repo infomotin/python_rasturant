@@ -1,15 +1,13 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
+ {% block content %}
 <!-- Main Section Start -->
 <div class="main-section">
-  <div
-    class="page-section nopadding cs-nomargin"
-    style="
+  <div class="page-section nopadding cs-nomargin" style="
       margin-top: 0px;
       padding-top: 60px;
       padding-bottom: 60px;
       margin-bottom: 0px;
-    "
-  >
+    ">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -24,75 +22,74 @@
               </p>
               <hr />
               <div id="restaurant-sets-holder">
-                <form
-                  class="form-fields-set foodbakery-dev-restaurant-form"
-                  method="post"
-                  action="{% url 'registerUser' %}"
-                >
+                <form class="form-fields-set foodbakery-dev-restaurant-form" method="post"
+                  action="{% url 'registerVendor' %}" enctype="multipart/form-data">
                   {% csrf_token %}
-                  <ul
-                    class="register-add-restaurant-tab-container restaurant-information-tab-container"
-                  >
+                  <ul class="register-add-restaurant-tab-container restaurant-information-tab-container">
                     <li>
                       <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                           <div class="row">
                             <ul>
                               <li>
-                                <div
-                                  class="col-lg-6 col-md-6 col-sm-6 col-xs-12"
-                                >
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                   <div class="field-holder">
                                     <label>First name</label>
                                     {{ form.first_name }}
                                   </div>
                                 </div>
-                                <div
-                                  class="col-lg-6 col-md-6 col-sm-6 col-xs-12"
-                                >
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                   <div class="field-holder">
                                     <label>Last name</label>
                                     {{ form.last_name }}
                                   </div>
                                 </div>
-                                <div
-                                  class="col-lg-6 col-md-6 col-sm-6 col-xs-12"
-                                >
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                   <div class="field-holder">
                                     <label>User Name</label>
                                     {{ form.username }}
                                   </div>
                                 </div>
-                                <div
-                                  class="col-lg-6 col-md-6 col-sm-6 col-xs-12"
-                                >
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                   <div class="field-holder">
                                     <label>Restaurant phone</label>
                                     {{ form.phone_number }}
                                   </div>
                                 </div>
-                                <div
-                                  class="col-lg-6 col-md-6 col-sm-6 col-xs-12"
-                                >
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                  <div class="field-holder">
+                                    <label>Restaurant Name</label>
+                                    {{  v_form.vendor_name }}
+                                  </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                  <div class="field-holder">
+                                    <label>Restaurant license</label>
+                                    {{ v_form.vendor_license }}
+                                  </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                   <div class="field-holder">
                                     <label>Email Address</label>
                                     {{ form.email }}
                                   </div>
                                 </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                  <div class="field-holder">
+                                    <label>slug</label>
+                                    {{ v_form.vendor_slug }}
+                                  </div>
+                                </div>
                               </li>
 
                               <li>
-                                <div
-                                  class="col-lg-6 col-md-6 col-sm-12 col-xs-12"
-                                >
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                   <div class="field-holder">
                                     <label>Password</label>
                                     {{ form.password }}
                                   </div>
                                 </div>
-                                <div
-                                  class="col-lg-6 col-md-6 col-sm-12 col-xs-12"
-                                >
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                   <div class="field-holder">
                                     <label>Confirm Password</label>
                                     {{ form.confirm_password }}
@@ -106,9 +103,9 @@
                     </li>
                     <li>
                       <ul class="errorlist">
-                        {% for field in form %}
-                         {% if field.errors %} 
-                         {% for error in field.errors %}
+                        {% for field in form %} 
+                        {% if field.errors %} 
+                        {% for error in field.errors %}
                         <li>{{ error }}</li>
                         {% endfor %} 
                         {% endif %} 
@@ -120,12 +117,8 @@
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                           <div class="field-holder">
                             <div class="payment-holder">
-                              <input
-                                type="submit"
-                                value="Submit"
-                                id="btn-next-restaurant-information"
-                                class="bgcolor"
-                              />
+                              <input type="submit" value="Submit" id="btn-next-restaurant-information"
+                                class="bgcolor" />
                             </div>
                           </div>
                         </div>
